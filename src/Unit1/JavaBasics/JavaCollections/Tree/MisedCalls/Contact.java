@@ -1,4 +1,4 @@
-package Unit1.JavaBasics.JavaCollections.Tree;
+package Unit1.JavaBasics.JavaCollections.Tree.MisedCalls;
 
 public class Contact {
     private String name;
