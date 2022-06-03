@@ -6,6 +6,7 @@ public class NewThread extends Thread {
         super(threadGroup, name);
     }
 
+
     @Override
     public void run() {
         try {

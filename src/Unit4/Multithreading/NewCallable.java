@@ -6,7 +6,7 @@ import java.util.concurrent.Callable;
 public class NewCallable<T> implements Callable<Integer> {
     private String name;
 
-    public NewCallable (String name) {
+    public NewCallable(String name) {
         this.name = name;
     }
 

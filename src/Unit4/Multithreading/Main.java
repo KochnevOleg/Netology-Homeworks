@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         ThreadGroup group = new ThreadGroup("group");
 
+
         System.out.println("Creating threads...");
         new NewThread(group, "thread 1").start();
         new NewThread(group, "thread 2").start();
@@ -20,7 +21,7 @@ public class Main {
         group.interrupt();
         System.out.println("Interrupting threads...");
 
-        ////////////////task2////////////////////////
+        ////////////////task2///////////////////////
 
         ExecutorService es = Executors.newFixedThreadPool(5);
 
