@@ -14,17 +14,18 @@ public class Main {
 
         List<String> listOfConscripts = listOfPersons.stream()
                 .filter(person -> person.getSex().equals(Sex.MAN))
-                .filter(person -> person.getAge() >= 18 && person.getAge() <= 27)
-                .map(person -> person.getSurname())
+                .filter(person -> person.getAge() >= 18 && person.getAge() < 27)
+                .map(Person::getSurname)
                 .collect(Collectors.toList());
 
         List<Person> listOfWorkable = listOfPersons.stream()
                 .filter(person -> person.getEducation().equals(Education.HIGHER))
-                .filter(person -> person.getSex().equals(Sex.MAN))
-                .filter(person -> person.getAge() >= 18 && person.getAge() < 65)
-                .filter(person -> person.getSex().equals(Sex.WOMAN))
-                .filter(person -> person.getAge() >= 18 && person.getAge() < 60)
-                .sorted(Comparator.comparing(person -> person.getSurname()))
+                .filter(person -> {
+                    if (person.getSex().equals(Sex.MAN) && person.getAge() >= 18 && person.getAge() < 65) {
+                        return true;
+                    } else return person.getSex().equals(Sex.WOMAN) && person.getAge() >= 18 && person.getAge() < 60;
+                })
+                .sorted(Comparator.comparing(Person::getSurname))
                 .collect(Collectors.toList());
 
         System.out.println(listOfWorkable);

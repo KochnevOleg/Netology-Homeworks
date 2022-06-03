@@ -2,9 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/Unit2/JavaCore/Calculator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/Unit2/JavaCore/Calculator" vcs="" />
     <mapping directory="$PROJECT_DIR$/src/Unit2/JavaCore/Lambdas/Calculator" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/Unit2/JavaCore/Lambdas/Worker" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/Unit2/JavaCore/Worker" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/Unit2/JavaCore/Worker" vcs="" />
   </component>
 </project>

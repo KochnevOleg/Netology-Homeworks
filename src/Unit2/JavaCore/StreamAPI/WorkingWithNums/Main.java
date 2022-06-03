@@ -22,12 +22,12 @@ public class Main {
             }
         }
 
-        odds.sort(new Comparator<Integer>() {
+        odds.sort((new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 return o1.compareTo(o2);
             }
-        });
+        }));
 
         StringBuilder result = new StringBuilder();
         for(int integer : odds) {
