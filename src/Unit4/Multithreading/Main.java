@@ -23,6 +23,10 @@ public class Main {
 
         ////////////////task2///////////////////////
 
+        Thread.sleep(3000);
+        System.out.println("\n\nTask 2 beginning...\n\n");
+        Thread.sleep(3000);
+
         ExecutorService es = Executors.newFixedThreadPool(5);
 
         List<Callable<Integer>> listOfTasks = new ArrayList<>();
