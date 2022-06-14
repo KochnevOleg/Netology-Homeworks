@@ -10,11 +10,11 @@ public class Main {
 
 
         System.out.println("Creating threads...");
-        new NewThread(group, "thread 1").start();
-        new NewThread(group, "thread 2").start();
-        new NewThread(group, "thread 3").start();
-        new NewThread(group, "thread 4").start();
-        new NewThread(group, "thread 5").start();
+        String[] threads = {"thread 1", "thread 2", "thread 3", "thread 4", "thread 5"};
+
+        for (String thread : threads) {
+            new NewThread(group, thread).start();
+        }
 
         Thread.sleep(15000);
 
@@ -30,11 +30,10 @@ public class Main {
         ExecutorService es = Executors.newFixedThreadPool(5);
 
         List<Callable<Integer>> listOfTasks = new ArrayList<>();
-        listOfTasks.add(new NewCallable<>("thread 1"));
-        listOfTasks.add(new NewCallable<>("thread 2"));
-        listOfTasks.add(new NewCallable<>("thread 3"));
-        listOfTasks.add(new NewCallable<>("thread 4"));
-        listOfTasks.add(new NewCallable<>("thread 5"));
+
+        for (String thread : threads) {
+            listOfTasks.add(new NewCallable<>(thread));
+        }
 
         es.invokeAll(listOfTasks);
 
