@@ -1,15 +1,16 @@
-package Unit4;
+package Unit4.Showroom;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Showroom {
 
-    Seller seller;
+    private final int SELL_TIME = 5000;
+    private final int PRODUCING_TIME = 15000;
+
     private List<Car> listOfCars;
 
     public Showroom() {
-        seller = new Seller(this);
         listOfCars = new ArrayList<>();
     }
 
@@ -19,10 +20,11 @@ public class Showroom {
             System.out.println(Thread.currentThread().getName() + " пришел в автосалон за новым автомобилем...\n" +
                     "\"Проверяем наличие автомобиля...\"");
             while (listOfCars.isEmpty()) {
-                System.out.println("К сожалению сейчас в наличии нет автомобилей :(\n" + Thread.currentThread().getName() + " ожидает поступления новой партии...");
+                System.out.println("К сожалению сейчас в наличии нет автомобилей :(\n" + Thread.currentThread().getName() +
+                        " ожидает поступления новой партии...");
                 wait();
             }
-            Thread.sleep(5000);
+            Thread.sleep(SELL_TIME);
             System.out.println("Автомобиль продан, " + Thread.currentThread().getName() + " счастливый обладатель нового авто!");
             listOfCars.remove(0);
             Thread.currentThread().interrupt();
@@ -35,8 +37,8 @@ public class Showroom {
         try {
             for (int i = 0; i < 10; i++) {
                 System.out.println("Поступил новый автомобиль, идет приемка...");
-                Thread.sleep(1000);
-                listOfCars.add(new Car(i));
+                Thread.sleep(PRODUCING_TIME);
+                listOfCars.add(new Car());
                 notifyAll();
             }
         } catch (InterruptedException e) {

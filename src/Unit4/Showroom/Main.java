@@ -1,9 +1,9 @@
-package Unit4;
+package Unit4.Showroom;
 
 public class Main {
     public static void main(String[] args) {
         Showroom showroom = new Showroom();
-        String[] entities = {"Покупатель 1",
+        String[] threads = {"Покупатель 1",
                 "Покупатель 2",
                 "Покупатель 3",
                 "Покупатель 4",
@@ -15,11 +15,11 @@ public class Main {
                 "Покупатель 10",
                 "Производитель"};
 
-        for(String string: entities){
-            if(string.equals("Производитель")) {
-                new Thread(showroom::receiveNewCar, string).start();
+        for(String thread: threads){
+            if(thread.equals("Производитель")) {
+                new Thread(showroom::receiveNewCar, thread).start();
             }else{
-                new Thread(showroom::sellCar, string).start();
+                new Thread(showroom::sellCar, thread).start();
             }
         }
     }
