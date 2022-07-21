@@ -10,5 +10,10 @@ public class Main {
 
         userThread.start();
         toyThread.start();
+
+        if (userThread.isInterrupted()) {
+            toyThread.interrupt();
+            System.out.println("Game over, toy wins:)");
+        }
     }
 }

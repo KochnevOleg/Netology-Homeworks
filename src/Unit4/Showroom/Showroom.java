@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Showroom {
 
-    private final int SELL_TIME = 5000;
-    private final int PRODUCING_TIME = 15000;
+    private final int SELL_TIME = 3000;
+    private final int PRODUCING_TIME = 5000;
 
     private List<Car> listOfCars;
 
@@ -33,13 +33,15 @@ public class Showroom {
         }
     }
 
-    public synchronized void receiveNewCar() {
+    public void receiveNewCar() {
         try {
             for (int i = 0; i < 10; i++) {
                 System.out.println("Поступил новый автомобиль, идет приемка...");
                 Thread.sleep(PRODUCING_TIME);
-                listOfCars.add(new Car());
-                notifyAll();
+                synchronized (this) {
+                    listOfCars.add(new Car());
+                    notify();
+                }
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

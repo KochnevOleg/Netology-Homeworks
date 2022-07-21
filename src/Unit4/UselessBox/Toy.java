@@ -2,13 +2,13 @@ package Unit4.UselessBox;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class Toy extends Thread {
+public class Toy {
 
     private AtomicBoolean switcher;
 
     public Toy() {
         switcher = new AtomicBoolean();
-        switcher.set(false);
+        switcher.set(true);
     }
 
     public void switchOff() {
