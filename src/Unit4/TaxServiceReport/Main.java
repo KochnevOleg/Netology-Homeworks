@@ -17,5 +17,7 @@ public class Main {
 
         shops.awaitTermination(3, TimeUnit.SECONDS);
         System.out.println("Daily result is: " + dailyReport);
+
+        Thread.currentThread().interrupt();
     }
 }
