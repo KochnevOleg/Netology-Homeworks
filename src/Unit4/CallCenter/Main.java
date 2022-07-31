@@ -13,6 +13,7 @@ public class Main {
         ExecutorService executorService = Executors.newFixedThreadPool(30);
 
         executorService.submit(pbx::generateCalls);
+        Thread.sleep(1000);
         while (!executorService.isTerminated()) {
             executorService.submit(callCenter::receiveCall);
         }

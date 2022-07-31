@@ -16,9 +16,10 @@ public class CallCenter {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (!pbx.getCalls().isEmpty()) {
-            System.out.println("Request from user " + pbx.getCalls().peek() + " is handled.");
-            pbx.getCalls().poll();
+
+        Call call = pbx.getCalls().poll();
+        if (call != null) {
+            System.out.println("Request from user " + call + " is handled.");
         }
     }
 }
