@@ -7,15 +7,15 @@ import java.util.Scanner;
 public class Client {
 
     private static final String LOCALHOST = "127.0.0.1";
-    private static final int PORT = 23444;
+    private static final int PORT = 28912;
 
     public static void main(String[] args) throws IOException {
 
         Socket socket = new Socket(LOCALHOST, PORT);
 
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-             PrintWriter out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-             Scanner scanner = new Scanner(System.in)) {
+        try  (BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+              PrintWriter out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
+              Scanner scanner = new Scanner(System.in)) {
 
             String input;
 

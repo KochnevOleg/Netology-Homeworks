@@ -9,17 +9,17 @@ import java.net.Socket;
 
 public class Server {
 
-    private static final int PORT = 23444;
+    private static final int PORT = 28912;
 
     public static void main(String[] args) throws IOException {
 
         ServerSocket serverSocket = new ServerSocket(PORT);
 
-        while (true) {
-            try (Socket socket = serverSocket.accept();
-                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+        try (Socket socket = serverSocket.accept();
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 
+            while (true) {
                 String userInput = in.readLine();
 
                 if (userInput == null || userInput.equals("end")) {
@@ -28,16 +28,14 @@ public class Server {
                 } else {
                     out.println("Result is:" + getFibonacciNumber(Integer.parseInt(userInput)));
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     public static int getFibonacciNumber(int a) {
-        if (a < 1) {
-            return 0;
-        } else if (a == 2) {
+        if (a == 1 || a == 2) {
             return 1;
         } else {
             return getFibonacciNumber(a - 1) + getFibonacciNumber(a - 2);
